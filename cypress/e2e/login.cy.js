@@ -1,3 +1,5 @@
+/* global cy, describe, it, beforeEach */
+
 /**
  * Skenario Pengujian E2E: Alur Login
  * * - Login spec
@@ -16,14 +18,14 @@ describe('Login spec', () => {
     cy.get('input[placeholder="Email"]').should('be.visible')
     cy.get('input[placeholder="Password"]').should('be.visible')
     // Jika tombol di UI kamu bernama "Masuk", ganti tulisan 'Login' di bawah menjadi 'Masuk'
-    cy.get('button').contains('Login').should('be.visible') 
+    cy.get('button').contains('Login').should('be.visible')
   })
 
   it('harus berhasil login dan diarahkan ke halaman utama jika email dan password benar', () => {
     // Action: Mengetik email dan password
-    cy.get('input[placeholder="Email"]').type('faristester@gmail.com') 
+    cy.get('input[placeholder="Email"]').type('faristester@gmail.com')
     cy.get('input[placeholder="Password"]').type('rahasia123')
-    
+
     // Action: Klik tombol login
     cy.get('button').contains('Login').click()
 
