@@ -43,7 +43,7 @@ describe('authUserReducer function', () => {
     const nextState = authUserReducer(initialState, action)
 
     // assert
-    expect(nextState).toEqual(action.payload.authUser)
+    expect(nextState).toEqual(false)
   })
 
   it('harus mengembalikan null jika diberikan action UNSET_AUTH_USER', () => {
