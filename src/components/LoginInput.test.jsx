@@ -1,4 +1,12 @@
-import React from 'react'
+/**
+ * Skenario Pengujian untuk LoginInput:
+ *
+ * - LoginInput component
+ * - harus menangani pengetikan email dengan benar
+ * - harus menangani pengetikan password dengan benar
+ * - harus memanggil fungsi login ketika tombol login diklik
+ */
+
 import { describe, it, expect, afterEach, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -42,7 +50,7 @@ describe('LoginInput component', () => {
     await userEvent.type(emailInput, 'test@example.com')
     const passwordInput = await screen.getByPlaceholderText('Password')
     await userEvent.type(passwordInput, 'rahasia123')
-    
+
     // Sesuaikan 'Login' dengan teks yang ada
     const loginButton = await screen.getByRole('button', { name: 'Login' })
 
