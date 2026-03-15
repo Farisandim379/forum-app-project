@@ -1,3 +1,12 @@
+/**
+ * Skenario Pengujian untuk LoginInput:
+ *
+ * - LoginInput component
+ * - harus menangani pengetikan email dengan benar
+ * - harus menangani pengetikan password dengan benar
+ * - harus memanggil fungsi login ketika tombol login diklik
+ */
+
 import { describe, it, expect } from 'vitest'
 import isPreloadReducer from './reducer'
 import { ActionType } from './action'

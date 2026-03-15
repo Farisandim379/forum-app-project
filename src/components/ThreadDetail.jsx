@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncToggleUpVoteThreadDetail, asyncToggleDownVoteThreadDetail, asyncToggleNeutralVoteThreadDetail } from '../states/detailThread/action'
+import parse from 'html-react-parser'
 
 function ThreadDetail ({ title, body, category, createdAt, owner, upVotesBy = [], downVotesBy = [] }) {
   const postedAt = new Date(createdAt).toLocaleDateString()
@@ -25,10 +26,10 @@ function ThreadDetail ({ title, body, category, createdAt, owner, upVotesBy = []
     <section className="card" style={{ marginBottom: '30px' }}>
       <header>
         <span className="tag">#{category}</span>
-        <h2 dangerouslySetInnerHTML={{ __html: title }} style={{ marginTop: '10px' }} />
+        <h2 style={{ marginTop: '10px' }}>{parse(title)}</h2>
       </header>
 
-      <div dangerouslySetInnerHTML={{ __html: body }} style={{ marginTop: '15px', color: 'var(--text-dark)' }} />
+      <div style={{ marginTop: '15px', color: 'var(--text-dark)' }}>{parse(body)}</div>
 
       <footer className="user-info" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

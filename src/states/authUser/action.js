@@ -31,7 +31,7 @@ function asyncSetAuthUser ({ email, password }) {
       const authUser = await api.getOwnProfile()
       dispatch(setAuthUserActionCreator(authUser))
     } catch (error) {
-      alert(error.message) // Untuk sementara pakai alert, nanti bisa diganti toast/snackbar
+      alert(error.message) 
     }
   }
 }

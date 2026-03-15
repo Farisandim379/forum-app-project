@@ -1,3 +1,4 @@
+import parse from 'html-react-parser'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux' // Import hooks Redux
 import { asyncToggleUpVoteThread, asyncToggleDownVoteThread, asyncToggleNeutralVoteThread } from '../states/threads/action'
@@ -30,16 +31,18 @@ function ThreadItem ({ id, title, body, category, createdAt, totalComments, upVo
         <h3 style={{ marginTop: '0', fontSize: '20px' }}>
           <Link
             to={`/threads/${id}`}
-            dangerouslySetInnerHTML={{ __html: title }}
             style={{ color: 'var(--text-dark)', transition: 'color 0.2s' }}
             onMouseOver={(e) => { e.target.style.color = 'var(--primary)' }}
             onMouseOut={(e) => { e.target.style.color = 'var(--text-dark)' }}
-          />
+          >
+            {parse(title)}
+          </Link>
         </h3>
       </header>
 
-      <div className="thread-item__body" dangerouslySetInnerHTML={{ __html: body.substring(0, 120) + '...' }} style={{ color: 'var(--text-muted)', fontSize: '15px' }} />
-
+      <div className="thread-item__body" style={{ color: 'var(--text-muted)', fontSize: '15px' }}>
+        {parse(body.substring(0, 120) + '...')}
+      </div>
       <footer className="user-info" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <img src={user?.avatar} alt={user?.name} width="32" className="avatar" />
